@@ -1,0 +1,172 @@
+
+<!DOCTYPEhtml >
+< html  lang =" en " >
+< cabeça >
+    < meta  charset =" UTF-8 " >
+    < meta  name =" viewport " content =" largura=largura do dispositivo, escala inicial=1.0 " >
+    < title > Saudações </ title >
+
+    < estilo >
+
+
+        corpo {
+            font-variant-caps : all-petite-caps;
+
+
+        }
+
+        . widget {
+            preenchimento :  5px 5px ; _  _
+            cor :  # ffffff ;
+            exibição : flexível;
+            justificar-conteúdo : centro;
+            align-items : centro;
+            flex-direction : coluna;
+            largura máxima :  95 % ;
+            margem : automático;
+            borda :  sólido de 3 px # ffffff ;
+            raio da borda :  5 px ;
+            box-shadow :  2 px  2 px  1 px  0 px  # ffffff ;
+
+        }
+
+           
+        . cumprimentar {
+            tamanho da fonte :  3 em ;
+        }
+
+        . data {
+      
+            font-family : monoespaçado;
+            tamanho da fonte :  2 em ;
+        }
+
+        . relógio {
+            font-family : monoespaçado;
+            tamanho da fonte :  2 em ;
+        }
+
+        . tempo {
+            exibição : bloco em linha;
+            largura mínima :  20 px ;
+        }
+
+        . dois pontos {
+            tamanho da fonte :  1 em ;
+            exibição : bloco em linha;
+        }
+
+     
+
+
+
+
+    </ estilo >
+</ cabeça >
+< corpo >
+
+
+
+
+< classe div  =" contêiner> " >
+    < classe div  =" widget " >
+
+            < div  class =" saudar " id =" saudar " > </ div >
+
+                < div  class =" data " id =" data " > </ div >
+                < classe div  =" relógio " >
+                    < div  class =" time " id =" hora " > </ div >
+                    < div  class =" dois pontos " > : </ div >
+                    < div  class =" time " id =" min " > </ div >
+                    < div  class =" dois pontos " > : </ div >
+                    < div  class =" time " id =" seg " > </ div >
+                </ div >
+           
+
+        
+
+    </ div >
+</ div >
+        
+
+
+
+< roteiro >
+
+function  dispalySaudações ( hoje ) {
+        horas  =  hoje . getHoras ( ) ;
+        nome = "Luana"
+        se  ( horas  <  12 )
+            saudar  =  'Bom Dia' + Luana ;
+        senão  se  ( horas  >=  12  &&  horas  <=  17 )
+            saudar  =  'Boa Trade' + Luana ;
+        senão  se  ( horas  >=  17  &&  horas  <=  24 )
+            saudar  =  'Boa Noite' + Luana ;
+        documento . getElementById ( 'cumprimento' ) . innerHTML  =  saudar ;
+
+    }
+
+    function  dispalyDate ( hoje )  {  
+       
+        const  dias  =  [ 'Domingo' ,  'Segunda' ,  'Terça' ,  'Quarta' ,  'Quinta' ,  'Sexta' ,  'Sábado' ] ;
+        const  monthNames  =  [ "Janeiro" ,  "Fevereiro" ,  "Março" ,  "Abril" ,  "Maio" ,  "Junho" ,
+  "Julho" ,  "Agosto" ,  "Setembro" ,  "Outubro" ,  "Novembro" ,  "Dezembro"
+] ;
+
+        var  diaNome  =  dias [ hoje . getDia ( ) ] ;
+        var  monthName  =  monthNames [ hoje . getMês ( ) ] ;
+        var  data  =  hoje . getData ( ) ;
+        var  ano  =  hoje . getFullYear ( ) ;
+        documento . getElementById ( 'data' ) . innerHTML  = dayName + ", " + monthName + " " + data + " " + ano ;
+
+    }
+
+
+    função  dispalyClock ( hoje )  {
+
+        var  hora  =  padZeros ( dozeHour ( hoje . getHours ( ) ) ) ;
+        var  minutos  =  padZeros ( hoje . getMinutes ( ) ) ;
+        var  segundos  =  padZeros ( hoje . getSeconds ( ) ) ;
+       
+        if ( hoje . getHours ( )  >= 12 ) {
+            segundos += "pm"
+        }
+        senão {
+            segundos += "am"
+        }
+       
+        documento . getElementById ( 'hora' ) . innerHTML  =  hora ;
+        documento . getElementById ( 'min' ) . innerHTML  =  minutos ;
+        documento . getElementById ( 'sec' ) . innerHTML  =  segundos ;
+    }
+
+    função  dozeHour ( hour )  {
+        if  ( hora  >  12 )  {
+             hora de  retorno -=  12
+        }  senão  if  ( hora  ===  0 )  {
+             hora de  retorno =  12 ;
+        }  senão  {
+             hora de retorno
+        }
+    }
+    function  padZeros ( num )  {
+        if  ( num  <  10 )  {
+            num  =  '0'  +  num
+        } ;
+        retorna  num ;
+    }
+
+    função  displayWidget ( )  {
+        var  hoje  =  new  Date ( ) ;
+        dispalySaudações ( hoje ) ;
+        dispalyDate ( hoje ) ;
+        dispalyClock ( hoje ) ;
+        setTimeout ( dispalyWidget ,  500 ) ;
+    }
+
+    displayWidget ( )
+
+</ script >
+
+</ corpo >
+</ html >
